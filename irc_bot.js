@@ -12,15 +12,13 @@ var client = new irc.Client(process.env.NC_SERVER || 'chat.freenode.net',
 );
 
 client.addListener('message', function (from, to, message) {
-  console.log(from, to, message);
   knex.select('num_messages')
       .from('messages')
       .where( { nick:from } )
       .then(function(resp) {
-        console.log(resp);
         if (resp.length) {
           knex('messages').where({nick:from})
-            .update({nick:from, num_messages: resp.num_messages + 1})
+            .update({nick:from, num_messages: resp[0].num_messages + 1})
             .catch(function (error) {
               console.log(error);
             });
