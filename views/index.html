@@ -40,7 +40,7 @@
 			},
 			series: [{
 				type: 'pie',
-				name: 'Browser share',
+				name: 'Percentage of total messages sent',
 				data: [
 				{% for message in messages %}
 					[ "{{ message.nick }}", {{ message.num_messages }} ]
