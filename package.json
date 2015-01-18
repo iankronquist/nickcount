@@ -1,0 +1,25 @@
+{
+  "name": "nickcount",
+  "version": "0.1.0",
+  "description": "Finds out who talks the most in an irc channel",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "irc",
+    "spam"
+  ],
+  "author": "Ian Kronquist",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.11.0",
+    "irc": "^0.3.9",
+    "knex": "^0.7.3",
+    "nunjucks": "^1.1.0",
+    "pg": "^4.2.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^3.0.4"
+  }
+}

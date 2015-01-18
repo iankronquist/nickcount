@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id='filter-message'>
+		<p>
+		</p>
+	</div>
+
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script>
+	{{ data }}
+	$(function () {
+		$('#container').highcharts({
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: 1,//null,
+				plotShadow: false
+			},
+			title: {
+				text: 'Who talks the most in {{ channel_list }}.'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Browser share',
+				data: [
+				{% for message in messages %}
+					[ "{{ message.nick }}", {{ message.num_messages }} ]
+				{% endfor %}
+				]
+			}]
+		});
+	});
+	</script>
+
+{% endblock %}
