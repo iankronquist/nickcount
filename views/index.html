@@ -43,7 +43,7 @@
 				name: 'Percentage of total messages sent',
 				data: [
 				{% for message in messages %}
-					[ "{{ message.nick }}", {{ message.num_messages }} ]
+					[ "{{ message.nick }}", {{ message.num_messages }} ],
 				{% endfor %}
 				]
 			}]
