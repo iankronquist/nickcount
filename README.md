@@ -6,7 +6,9 @@ are they will take their conversations to different channels?
 
 How to deploy
 -------------
-Install node and dependencies the usual way.
+Install node and dependencies the usual way. The package names are 
+`nodejs-legacy` and `npm` on Ubuntu.
+
 ```shell
 $ npm install
 ```
