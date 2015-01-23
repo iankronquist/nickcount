@@ -4,7 +4,9 @@
   "description": "Finds out who talks the most in an irc channel",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node app.js",
+	"start-bot": "node irc_bot.js"
   },
   "keywords": [
     "irc",
@@ -13,6 +15,7 @@
   "author": "Ian Kronquist",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.10.1",
     "express": "^4.11.0",
     "irc": "^0.3.9",
     "knex": "^0.7.3",
