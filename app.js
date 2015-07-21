@@ -3,12 +3,15 @@
 
 var express = require('express');
 var nunjucks = require('nunjucks');
+var bodyParser = require('body-parser');
 var knex = require('knex')({
   client: process.env.CLIENT || 'sqlite3',
-  connection: process.env.DATABASE_URL || { filename: 'dev.sqlite3' }
+  connection: process.env.DATABASE_URL || { filename: 'app-db.sqlite3' }
 });
 
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/static'));
 app.set('knex', knex);
 

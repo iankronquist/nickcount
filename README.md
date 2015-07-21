@@ -12,6 +12,7 @@ Install node and dependencies the usual way. The package names are
 ```shell
 $ npm install
 ```
+
 First, you need to configure the site by setting environment variables. At a
 minimum you should set the following:
 ```shell
@@ -19,10 +20,17 @@ $ # NC_CHANNEL_LIST should be a comma separated list of channels to join
 $ export NC_CHANNEL_LIST='#hamper-testing,#osu-lug
 $ # NC_NICK should be the nickname of the bot
 $ export NC_NICK='my-bot'
+$ # APP_HOST should be the hostname of the server where the site is running
+$ export APP_HOST='example.com'
 ```
 Additional configuration options can be found by inspecting the source (AKA I'm
 lazy and it's only ~50 lines anyway). Note that it defaults to using a sqlite
 database and runs on port 8000.
+
+Next run migrations:
+```shell
+$ knex migrate:latest
+```
 
 Start the IRC bot:
 ```shell
